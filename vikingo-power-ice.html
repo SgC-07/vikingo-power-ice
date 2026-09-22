@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VIKINGO POWER ICE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --grey:#E3E5E8;
+    --blue-light:#AFCBDF;
+    --blue-mid:#5C88B2;
+    --green:#8FAF97;
+    --bg:#07090c;
+    --bg2:#0c1015;
+    --ink:#F2F3F4;
+    --ink-dim:#9AA1A8;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-padding-top: env(safe-area-inset-top, 0px);}
+  html,body{background:var(--bg); color:var(--ink); font-family:'Manrope',sans-serif; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.01em;}
+  section{
+    position:relative;
+    padding:5.5rem 1.5rem;
+    max-width:640px;
+    margin:0 auto;
+    background-image:
+      linear-gradient(var(--bg2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg2) 1px, transparent 1px);
+    background-size:34px 34px;
+  }
+  section::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0) 0%, var(--bg) 78%);
+    pointer-events:none;
+  }
+  .content{position:relative; z-index:1;}
+
+  /* HERO */
+  #hero{
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    max-width:none;
+    padding:2rem 1.5rem;
+  }
+  .wordmark{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:0.95rem; letter-spacing:0.04em;
+    color:var(--blue-light);
+    margin-bottom:2.4rem;
+  }
+  .wordmark span{color:var(--green);}
+  #hero h1{
+    font-size:clamp(2.1rem, 8vw, 3.1rem);
+    line-height:1.08;
+    max-width:11ch;
+    color:var(--ink);
+  }
+  #hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--blue-light), var(--green));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  #hero p{
+    margin-top:1.6rem;
+    font-size:1.05rem;
+    color:var(--ink-dim);
+    max-width:34ch;
+  }
+  .scroll-cue{
+    margin-top:auto;
+    padding-top:3rem;
+    display:flex; align-items:center; gap:0.6rem;
+    color:var(--ink-dim); font-size:0.85rem;
+  }
+  .scroll-cue .line{width:1px; height:34px; background:linear-gradient(var(--blue-mid), transparent); animation:drip 1.8s ease-in-out infinite;}
+  @keyframes drip{0%{opacity:.2} 50%{opacity:1} 100%{opacity:.2}}
+
+  /* SHARED */
+  .eyebrow{color:var(--green); font-size:0.85rem; margin-bottom:0.6rem;}
+  section h2{font-size:clamp(1.6rem,5vw,2.1rem); max-width:14ch; margin-bottom:1.2rem;}
+  section > .content > p.lead{color:var(--ink-dim); font-size:1.02rem; max-width:46ch; margin-bottom:2.2rem;}
+
+  /* BENEFITS */
+  .benefit{
+    display:flex; gap:1rem;
+    padding:1.3rem 0;
+    border-top:1px solid #1b2028;
+  }
+  .benefit:last-child{border-bottom:1px solid #1b2028;}
+  .benefit .dot{
+    width:8px; height:8px; border-radius:50%;
+    margin-top:0.5rem; flex-shrink:0;
+  }
+  .benefit h3{font-size:1.02rem; margin-bottom:0.3rem; color:var(--ink);}
+  .benefit p{color:var(--ink-dim); font-size:0.95rem; line-height:1.5;}
+
+  /* STORY */
+  .story-block{margin-bottom:2rem;}
+  .story-block h3{font-size:1rem; color:var(--blue-light); margin-bottom:0.5rem;}
+  .story-block p{color:var(--ink-dim); line-height:1.65; font-size:0.98rem;}
+
+  /* STEPS */
+  .step{
+    display:flex; gap:1.1rem; align-items:flex-start;
+    padding:1.4rem 0;
+    border-top:1px solid #1b2028;
+  }
+  .step:last-of-type{border-bottom:1px solid #1b2028;}
+  .step .num{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:1.3rem; color:var(--bg);
+    background:var(--blue-mid);
+    width:2.2rem; height:2.2rem; flex-shrink:0;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .step p{color:var(--ink-dim); font-size:0.98rem; padding-top:0.25rem;}
+  .note{
+    margin-top:2rem;
+    padding:1rem 1.2rem;
+    border-left:2px solid var(--green);
+    background:rgba(143,175,151,0.06);
+    color:var(--ink-dim);
+    font-size:0.9rem;
+    line-height:1.55;
+  }
+
+  footer{
+    text-align:center;
+    padding:3rem 1.5rem 4rem;
+    color:#4a4f56;
+    font-size:0.85rem;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue .line{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<section id="hero">
+  <div class="content">
+    <div class="wordmark">VIKINGO <span>POWER ICE</span></div>
+    <h1>Helado saludable que <em>no afecta</em> tu dieta y te salva de los antojos</h1>
+    <p>Energía en una barra helada pre-entrenamiento.</p>
+  </div>
+  <div class="scroll-cue"><div class="line"></div>desliza para descubrirlo</div>
+</section>
+
+<section id="producto">
+  <div class="content">
+    <div class="eyebrow">El producto a fondo</div>
+    <h2>¿Qué es VIKINGO POWER ICE?</h2>
+    <p class="lead">Un helado innovador en presentación de boli que combina el poder de la nutrición fitness con el placer de un postre tradicional. Elaborado a base de yogur griego natural y enriquecido con pre-entreno, nace de una receta familiar adaptada al mundo deportivo para ofrecer una experiencia única, práctica y deliciosa antes de cada entrenamiento.</p>
+
+    <div class="benefit"><div class="dot" style="background:var(--blue-mid)"></div><div><h3>Aporte energético superior (pre-entreno)</h3><p>Formulado con ingredientes que ayudan a desarrollar cada sesión de actividad física con mayor eficiencia energética, enfoque y rendimiento.</p></div></div>
+
+    <div class="benefit"><div class="dot" style="background:var(--grey)"></div><div><h3>Base saludable de yogur griego</h3><p>Elaborado con yogur griego natural que aporta proteínas y textura cremosa sin descuidar el equilibrio nutricional.</p></div></div>
+
+    <div class="benefit"><div class="dot" style="background:var(--green)"></div><div><h3>Empaque ecológico e innovador</h3><p>Sistema de sellado único y empaques biodegradables, alineados con el cuidado del medio ambiente y la sostenibilidad.</p></div></div>
+
+    <div class="benefit"><div class="dot" style="background:var(--blue-light)"></div><div><h3>Variedad de sabores exquisitos</h3><p>Pensado para satisfacer el paladar sin dejar de ser una alternativa saludable frente a los helados tradicionales.</p></div></div>
+
+    <div class="benefit"><div class="dot" style="background:var(--blue-mid)"></div><div><h3>Formato práctico — boli fitness</h3><p>La combinación perfecta entre practicidad, sabor y nutrición para llevar a cualquier parte.</p></div></div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="content">
+    <div class="eyebrow">Nuestra historia</div>
+    <h2>Sobre nosotros</h2>
+
+    <div class="story-block">
+      <h3>Cómo nació esta idea</h3>
+      <p>Todo empezó con una receta familiar que teníamos guardada con mucho cariño. Quisimos darle un giro total para adaptarla al mundo fitness: nos dimos cuenta de que la gente ya estaba cansada de tomar los mismos polvos y bebidas aburridas de siempre antes de entrenar. Así nació VIKINGO POWER ICE, una forma fresca, práctica y deliciosa de cargarte de energía.</p>
+    </div>
+
+    <div class="story-block">
+      <h3>Lo que nos mueve</h3>
+      <p>Queremos romper el molde de los helados de toda la vida. Nuestra meta es ofrecerte un snack saludable, elaborado con ingredientes naturales y con un sabor increíble, que realmente te ayude a rendir al máximo en tu entrenamiento.</p>
+    </div>
+
+    <div class="story-block">
+      <h3>Nuestro compromiso</h3>
+      <p>Estamos convencidos de que cuidarte no tiene por qué ser aburrido ni costar al planeta. Por eso combinamos nutrición de verdad con un empaque biodegradable y un sellado innovador, para que cuides tu cuerpo mientras también cuidas el medio ambiente.</p>
+    </div>
+  </div>
+</section>
+
+<section id="uso">
+  <div class="content">
+    <div class="eyebrow">Modo de uso</div>
+    <h2>¿Cómo y cuándo consumirlo?</h2>
+
+    <div class="step"><div class="num">1</div><p>Mantener congelado.</p></div>
+    <div class="step"><div class="num">2</div><p>Consumir de 15 a 30 minutos antes del entrenamiento.</p></div>
+    <div class="step"><div class="num">3</div><p>¡A entrenar con máxima potencia!</p></div>
+
+    <div class="note">Refrigerado correctamente, el producto dura 3 meses apto para consumo.</div>
+  </div>
+</section>
+
+<footer>VIKINGO POWER ICE</footer>
+
+</body>
+</html>
